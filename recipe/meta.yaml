@@ -1,4 +1,4 @@
-{% set version = "1.4.1" %}
+{% set version = "1.5.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/datefixR_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/datefixR/datefixR_{{ version }}.tar.gz
-  sha256: 5bb47369ff60598f586753c2e04947517499951ee582c0890f7660b6ba43d6b8
+  sha256: 9b385c75026e2c41bc7d47fa048e9e871a9d06378bd0c988342d25e4fea35ef8
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -53,8 +53,8 @@ test:
 about:
   home: https://docs.ropensci.org/datefixR/, https://github.com/ropensci/datefixR
   license: GPL-3.0-or-later
-  summary: "There are many different formats dates are commonly represented with: the order of day, month, or year can differ, different separators (\"-\", \"/\", or whitespace) can be used, months can be numerical, names, or abbreviations and year given as two digits or four. 'datefixR' takes dates in all these different\
-    \ formats and converts them to R's built-in date class. If 'datefixR' cannot standardize a date, such as because it is too malformed, then the user is told which date cannot be standardized and the corresponding ID for the row. 'datefixR' also allows the imputation of missing days and months with user-controlled behavior."
+  summary: "There are many different formats dates are commonly represented with: the order of day, month, or year can differ, different separators (\"-\", \"/\", or whitespace) can be used, months can be numerical, names, or abbreviations and year given as two digits or four. 'datefixR' takes dates in all these different
+    formats and converts them to R's built-in date class. If 'datefixR' cannot standardize a date, such as because it is too malformed, then the user is told which date cannot be standardized and the corresponding ID for the row. 'datefixR' also allows the imputation of missing days and months with user-controlled behavior."
   license_family: GPL3
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
