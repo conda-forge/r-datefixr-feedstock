@@ -1,4 +1,4 @@
-{% set version = "1.5.0" %}
+{% set version = "1.6.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/datefixR_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/datefixR/datefixR_{{ version }}.tar.gz
-  sha256: 9b385c75026e2c41bc7d47fa048e9e871a9d06378bd0c988342d25e4fea35ef8
+  sha256: e7fdfb88c26d1c75f10dd00c6c831bee0d14c2ae199f7008dd23b006be27804e
 
 build:
   merge_build_host: true  # [win]
