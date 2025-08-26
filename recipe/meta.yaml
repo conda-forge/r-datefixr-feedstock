@@ -1,4 +1,4 @@
-{% set version = "1.7.0" %}
+{% set version = "2.0.0" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,13 +9,17 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/datefixR_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/datefixR/datefixR_{{ version }}.tar.gz
-  sha256: f1b6b19da0ce4eb553fbab3f6f47b85d664990d0a437dc591ca8552521884edb
+  sha256: 08d3ea02e94eaf8dc922275507ba0f6daec7c64838cf27eae97cd4ebcffafb2a
 
 build:
   number: 0
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
   build:
@@ -33,16 +37,12 @@ requirements:
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
-    - r-rcpp
     - r-lifecycle
     - r-rlang
-    - r-stringr
   run:
     - r-base
-    - r-rcpp
     - r-lifecycle
     - r-rlang
-    - r-stringr
 
 test:
   commands:
