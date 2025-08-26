@@ -16,6 +16,10 @@ build:
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
   build:
@@ -33,16 +37,12 @@ requirements:
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
-    - r-rcpp
     - r-lifecycle
     - r-rlang
-    - r-stringr
   run:
     - r-base
-    - r-rcpp
     - r-lifecycle
     - r-rlang
-    - r-stringr
 
 test:
   commands:
